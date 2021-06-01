@@ -10,3 +10,14 @@ end
 print "\n"
 print nota_mas_alta(filtro[ARGV[0].to_i])
 print "\n" "\n"
+
+# Solucion Profesor
+
+data = (File.open("notas.data")).read.split("\n")
+data.map!{|x| x.split(",")}
+
+def nota_mas_alta(arr)
+    [arr[0], arr.map{|e| e.to_i}.max]
+end
+
+pp nota_mas_alta(data[1])

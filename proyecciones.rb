@@ -14,3 +14,18 @@ output.write(resultado1) # Escribo el primer resultado
 output.write("\n") # Escribo un salto de linea
 output.write(resultado2) # Escribo el segundo resultado
 output.close # Cierro el archivo
+
+# Solucion Profesor
+
+data = open('ventas_base.db').read.split(",")
+array = []
+data.map!{|e| e.to_i}
+def simulacion(array, aum1, aum2)
+    sem1 = array[0..5].sum
+    sem2 = array[6..11].sum
+    (sem1 * aum1 + sem2 * aum2).round(2)
+end
+output = File.open('resultados.data', 'w')
+output.write("#{simulacion(data, 1.1, 1)}\n")
+output.write(simulacion(data, 1, 1.2))
+output.close
